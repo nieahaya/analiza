@@ -43,3 +43,36 @@ for key in magic_dict.keys():
 
 # Sprawdźmy czy otrzymaliśmy poprawny wynik
 assert sum_of_values == 100
+
+
+#Utwórz listę wyrazów na podstawie listy liczb, zasady:
+#• Jeśli liczba jest wielokrotnością pięciu i jest nieparzysta, wyraz powinien mieć wartość ’five odd’
+#• Jeśli liczba jest wielokrotnością pięciu i parzystą, wyraz powinien być ’five even’
+#• Jeśli liczba jest nieparzysta, ciąg znaków jest ’odd’
+#• Jeśli liczba jest parzysta, ciąg znaków jest ’even’
+#Przydatne: append(), %, and, not, ==, !=
+
+numbers = [1, 3, 4, 6, 81, 80, 100, 95]
+# Twoja implementacja
+my_list = []
+for number in numbers:
+    if number %5==0 and number %2!=0:
+        my_list.append("five odd")
+    elif number %5==0 and number %2==0:
+        my_list.append("five even")
+    elif number %2==1:
+        my_list.append("odd")
+    elif number %2==0:
+        my_list.append("even")
+
+# Sprawdźmy czy otrzymaliśmy poprawny wynik
+assert my_list == [
+"odd",
+"odd",
+"even",
+"even",
+"odd",
+"five even",
+"five even",
+"five odd",
+]
