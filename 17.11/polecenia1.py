@@ -138,21 +138,86 @@
 #całe działanie w jednej linii. Program powinien wyświetlać wynik w poniższej postaci.
 #Przydatne: .split()
 
-z= input("Podaj pełne działanie: ")
-lis=z.split()
+#z= input("Podaj pełne działanie: ")
+#lis=z.split()
  
-x=float(lis[0])
-y=float(lis[2])
-k=lis[1]
+#x=float(lis[0])
+#y=float(lis[2])
+#k=lis[1]
  
+#dzialania = {
+#    "+": x + y,
+#    "*": x*y,
+#    "-": x - y,
+#    "/": x/y,
+#}
  
-dzialania = {
-    "+": x + y,
-    "*": x*y,
-    "-": x - y,
-    "/": x/y,
-}
- 
-wynik = [value for key, value in dzialania.items() if k in key][0]
-print(f"Działanie {z}")
-print(f"Wynik {wynik}")
+#wynik = [value for key, value in dzialania.items() if k in key]
+#print(f"Działanie {z}")
+#print(f"Wynik {wynik}")
+
+
+
+#Przefiltruj poniższą listę liczb korzystając z list comprehension, w taki sposób, aby odfiltrować liczby ujemne oraz zero.
+#Przydatne: instrukcje warunkowe, list comprehension
+
+lista = [-4, -3, -2, -1, 0, 3, 6, 9, 12]
+nowaLista = [x for x in lista if x>0]
+print(nowaLista)
+
+#Używając list comprehension utwórz następującą listę krotek
+#Przydatne: operatory arytmetyczne, list comprehension, range()
+
+[(0, 1, 0, 0, 0), (1, 1, 1, 1, 1), (2, 1, 2, 4, 8), (3, 1, 3, 9, 27),
+(4, 1, 4, 16, 64), (5, 1, 5, 25, 125), (6, 1, 6, 36, 216), (7, 1, 7,
+49, 343), (8, 1, 8, 64, 512), (9, 1, 9, 81, 729), (10, 1, 10, 100, 1000)]
+
+#lista_krotek = [(x, 1, x, x**2, x**3) for x in range(11)]
+#print(lista_krotek)
+
+
+#Poniższą listę przekształć na zbiór i porównaj długość listy i zbioru, a następnie wyświetl który jest większy.
+#Przydatne: len(), instrukcje warunkowe, set()
+
+list = [22, 19, 24, 25, 26, 24, 25, 24]
+
+zbiórzlisty = set(list)
+
+length_list = len(list)
+length_set = len(zbiórzlisty)
+
+if length_list > length_set:
+    print("Lista jest większa.")
+elif length_list < length_set:
+    print("Zbiór jest większy.")
+else:
+    print("Lista i zbiór mają tę samą długość.")
+
+
+
+# Wyświetl tabliczkę mnożenia od 1 do 10 włącznie dla liczby wprowadzonej przez użytkownika.
+#Przydatne: range()
+
+#liczba = int(input("Wprowadź liczbę: "))
+#tabliczka = [liczba * x for x in range(1, 11)]
+#print(tabliczka)
+
+
+
+#Wykorzystaj pętlę for, aby przeiterować od 0 do 100 włącznie i wypisać sumę wszystkich liczb
+#parzystych i sumę wszystkich liczb nieparzystych. (Suma wszystkich parzystych wynosi 2550,
+#natomiast liczb nieparzystych 2500.)
+#Przydatne: instrukcje warunkowe, range()
+
+parzyste = []
+nieparzyste = []
+
+for x in range(101):
+    if x%2==0:
+        parzyste.append(x)
+    elif x%2==1:
+        nieparzyste.append(x)
+
+print(sum(parzyste))
+print(sum(nieparzyste))
+
