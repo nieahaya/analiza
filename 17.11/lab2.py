@@ -129,26 +129,26 @@ print("Odwrócony napis:", odwrocony_napis)
 #Zakładamy że zawsze będą wprowadzone minimum 2 słowa, oddzielone spacjami.
 #Użyteczne wyrażenia: split(), join(), upper(), lower().
 
-napis14 = input("Podaj napis: ")
+#napis14 = input("Podaj napis: ")
 
 # Podział napisu na listę słów
-slowa = napis14.split()
+#slowa = napis14.split()
 
 # Lista na wynikowe słowa
-wynik = []
+#wynik = []
 
 # Iteracja przez słowa z uwzględnieniem indeksu
-for i, slowo in enumerate(slowa): #indeks, wartosc
-    if i % 2 == 0:  # Indeksy parzyste (pierwsze, trzecie, itd.) - małe litery
-        wynik.append(slowo.lower())
-    else:  # Indeksy nieparzyste (drugie, czwarte, itd.) - duże litery
-        wynik.append(slowo.upper())
+#for i, slowo in enumerate(slowa): #indeks, wartosc
+#    if i % 2 == 0:  # Indeksy parzyste (pierwsze, trzecie, itd.) - małe litery
+#        wynik.append(slowo.lower())
+#    else:  # Indeksy nieparzyste (drugie, czwarte, itd.) - duże litery
+#        wynik.append(slowo.upper())
 
 # Połączenie słów w jeden napis
-wynikowy_napis = ' '.join(wynik)
+#wynikowy_napis = ' '.join(wynik)
 
 # Wyświetlenie wyniku
-print("Wynik:", wynikowy_napis)
+#print("Wynik:", wynikowy_napis)
 
 
 #Dane są dwie listy, zawierające liczby. Należy napisać program, który przeiteruje po obu listach jednocześnie
@@ -157,3 +157,84 @@ print("Wynik:", wynikowy_napis)
 #Użyteczne wyrażenia: for, zip(), if, else.
 #Zabronione w tym zadaniu wyrażenia: range().
 
+lista1= [1, 4, 3, 5, 2]
+lista2= [4, 2, 1, 5, 3]
+print("Wyniki działania programu: ")
+for a,b in zip(lista1, lista2):
+    print(f"{a} + {b} = {a+b}")
+
+#Podana jest lista zawierająca liczby całkowite. Napisz program, który wypisze w kolejnych wierszach indeks
+#elementu listy wraz z elementem listy pod tym indeksem, a dodatkowo wypisze słowo "kwadrat", jeżeli element
+#pod indeksem i jest równy i^2. Proszę użyć funkcji enumerate().
+#Użyteczne wyrażenia: for, if, else, enumerate().
+#Zabronione w tym zadaniu wyrażenia: range().
+
+lista17= [1, 9, 4, 49, 16, 36]
+print("Wynik działania programu: ")
+
+for index, value in enumerate(lista17):
+    if index**2==value:
+        print(index, value, "kwadrat!")
+    else:
+        print(index, value)
+
+
+#Napisz program, który pobierze od użytkownika napis, a następnie obliczy wystąpienia poszczególnych liter
+#w tym napisie, pomijając pozostałe symbole (nie uwzględniamy cyfr, spacji, przecinków itd.). Do wykonania
+#tego zadania należy posłużyć się słownikiem.
+#Użyteczne wyrażenia: for, in, , if, else, isalpha().
+#Zabronione w tym zadaniu wyrażenia: count().
+
+#napis = input("Podaj napis: ")
+#wystapienia = {}
+
+#for znak in napis:
+#    if znak.isalpha():  # Sprawdzamy, czy znak jest literą
+#        znak = znak.lower()  # Zamiana na małą literę, aby zliczanie było case-insensitive
+#        if znak in wystapienia:
+#            wystapienia[znak] += 1  # Jeśli litera już jest w słowniku, zwiększamy licznik
+#        else:
+#            wystapienia[znak] = 1  # Jeśli litery nie ma, dodajemy ją z liczbą 1
+
+# Wyświetlenie wyniku
+#print("Wynik:", wystapienia)
+
+
+
+#Napisz program, który będzie działał jako prosty kalkulator. Program w pętli ma pobierać od użytkownika wyrażania
+#formatu a ◦ b, gdzie a i b są liczbami całkowitymi, a ◦ znakiem oznaczającym dodawanie, odejmowanie, mnożenie lub
+#dzielenie (+, -, *, /) i wyświetlać wynik tego wyrażenia. Należy zakończyć działanie programu, jeżeli nie zostanie
+#wprowadzone nic (po prostu wciśnięcie Enter). Zakładamy, że zawsze mamy podane 2 liczby i działanie pomiędzy nimi,
+#liczby i działanie są oddzielone spacjami. Należy jednak obsłużyć przypadek dzielenia przez zero.
+#Użyteczne wyrażenia: while, split(), int(), if, elif, else.
+
+while True:
+
+    wyrazenie=input("Podaj wyrażenie w formacie a ◦ b: ")
+    wyrazenie_lista=wyrazenie.split(" ")
+
+    if wyrazenie_lista[1]=="/" and wyrazenie_lista[2]=="0":
+        print("Nie można dzielić przez zero")
+        break
+
+    x=float(wyrazenie_lista[0])
+    y=float(wyrazenie_lista[2])
+    z=wyrazenie_lista[1]
+
+    dzialania={
+    "+":x+y,
+    "-":x-y,
+    "*":x*y,
+    "/":x/y
+}
+
+    wynik = dzialania[z]
+    print(f"{x} {z} {y} = {wynik}")
+
+
+
+    
+
+
+
+    
