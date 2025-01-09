@@ -163,3 +163,77 @@ def grupuj_wedlug_typow(*args):
 
 # Przykład działania
 print(grupuj_wedlug_typow(1, "tekst", [1, 2], {"klucz": "wartosc"}, {1, 2, 3}, 3.14))
+
+
+
+#Napisz dwie funkcje:
+#– oblicz_srednia(lista) – która oblicza średnią arytmetyczną elementów listy.
+#– oblicz_wariancje(lista) – która wykorzystuje funkcję oblicz_srednia, aby obliczyć wariancję
+#elementów listy według wzoru:
+
+#Wariancja = 1/n * sigma n * (xi - średnia)^2
+
+#Następnie napisz funkcję która przyjmie dwie listy, obliczy średnią i wariancję dla obu list wykorzystując
+#powyższe funkcje, a następnie wyświetli informację o tym która lista ma większa średnią, a która ma
+#mniejszą wariancję. Przetestuj funkcje na różnych danych wejściowych.
+
+lista1=[1,5,9,3]
+lista2=[6,7,10,11]
+
+def oblicz_srednia(lista):
+    return(sum(lista)/len(lista))
+
+def oblicz_wariancje(lista):
+    srednia=oblicz_srednia(lista)
+    return sum([(x - srednia) ** 2 for x in lista]) / len(lista)
+
+def porownaj_listy(lista1, lista2):
+    srednia1 = oblicz_srednia(lista1)
+    srednia2 = oblicz_srednia(lista2)
+    wariancja1 = oblicz_wariancje(lista1)
+    wariancja2 = oblicz_wariancje(lista2)
+    if srednia1 > srednia2:
+        print("Lista 1 ma większą średnią.")
+    elif srednia1 < srednia2:
+        print("Lista 2 ma większą średnią.")
+    else:
+        print("Obie listy mają taką samą średnią.")
+    if wariancja1 < wariancja2:
+        print("Lista 1 ma mniejszą wariancję.")
+    elif wariancja1 > wariancja2:
+        print("Lista 2 ma mniejszą wariancję.")
+    else:
+        print("Obie listy mają taką samą wariancję.")
+
+lista1 = [1, 2, 3, 4, 5]
+lista2 = [2, 4, 6, 8, 10]
+porownaj_listy(lista1, lista2)
+
+
+#Napisz dwie funkcje:
+#– generuj_pary(lista) – która generuje wszystkie możliwe pary elementów z listy i zwraca je jako listę krotek.
+#– oblicz_roznice(pary) – która dla każdej pary oblicza różnicę między pierwszym a drugim elementem.
+#Następnie napisz funkcję, która przyjmie listę, wygeneruje pary liczb, obliczy różnice pomiędzy liczbami
+#w parze (wykorzystując powyższe funkcje) i posortuje różnice od najmniejszych do największych
+#Wynik powinien być wyświetlony jako liczba1 - liczba2 : różnica (dla każdej pary licz)
+#Przetestuj funkcje na różnych danych wejściowych.
+
+def generuj_pary(lista):
+    pary = []
+    for i in range(len(lista)):
+        for j in range(i + 1, len(lista)):
+            pary.append((lista[i], lista[j]))
+    return pary
+
+def oblicz_roznice(pary):
+    return [(a, b, a - b) for a, b in pary]
+
+def przetworz_liste(lista):
+    pary = generuj_pary(lista)
+    roznice = oblicz_roznice(pary)
+    posortowane = sorted(roznice, key=lambda x: x[2])
+    for a, b, roznica in posortowane:
+        print(f"{a} - {b}: {roznica}")
+
+lista = [10, 20, 30, 40]
+przetworz_liste(lista)
