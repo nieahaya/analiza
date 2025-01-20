@@ -175,6 +175,77 @@ def funkcja_kwadratowa(a, b, c):
 #Użyteczne wyrażenia: with, open(), write().
 
 
+#def zad6(n):
+    """Generuje listę liczb pierwszych do n (włącznie) za pomocą algorytmu sita Eratostenesa."""
+    primes = [True] * (n + 1)  # Domyślnie zakładamy, że wszystkie liczby są pierwsze
+    primes[0] = primes[1] = False  # 0 i 1 nie są liczbami pierwszymi
+
+    for i in range(2, int(n**0.5) + 1):
+        if primes[i]:
+            for j in range(i * i, n + 1, i):
+                primes[j] = False
+
+    # Zwracamy listę liczb pierwszych
+    return [i for i in range(n + 1) if primes[i]]
+
+
+#n = 100  # Zakres liczb pierwszych do wygenerowania
+
+#with open("prime_numbers.txt", "w") as file:
+    for i in range(0, len(zad6(n)), 5):
+        file.write(" ".join(map(str, zad6(n)[i:i + 5])) + "\n")
+
+#print(f"Liczby pierwsze do {n} zostały zapisane w pliku prime_numbers.txt.")
+
+
+#Zaimplementuj funkcje-generator, której zadaniem będzie generowanie kolejnych n liczb ciągu Fibonacciego
+#(wzór jest podany niżej). Liczba n jest podawana jako argument funkcji. Funkcja ma używać słowa kluczowego
+#yield. Przy implementacji nie używamy rekurencji!
+
+def zad7(n):
+    a, b = 0, 1
+    for _ in range(n):
+        yield a
+        a, b = b, a + b
+
+
+n = 10
+for fib in zad7(n):
+    print(fib)
+
+
+
+#Wczytaj plik students.csv, który zawiera w kolejnych wierszach dane o studentach w postaci imię, nazwisko,
+#numer albumu, ocena, oddzielone przycinkami. Należy wczytać te dane do struktury listy krotek (list of
+#tuples), przykładowe wczytane dane są pokazane w poniższym przykładzie. Następnie, należy użyć funkcji
+#wbudowanych sorted(), max() z argumentem key i wyświetlić:
+#• Dane o studentach posortowane po numerach albumów rosnąco,
+#• Dane o studentach posortowane po ocenach malejąco,
+#• Dane studenta z najwyższą oceną.
+
+with open('students.csv', 'r') as file:
+    lines = file.read().splitlines()
+    students = []
+    for line in lines:
+        name, surname, album_number, grade = line.split(',')
+        students.append((name, surname, int(album_number), float(grade)))
+
+sorted_by_album = sorted(students, key=lambda x: x[2])
+print("Dane posortowane po numerach albumów rosnąco:")
+for student in sorted_by_album:
+    print(student)
+
+sorted_by_grade_desc = sorted(students, key=lambda x: x[3], reverse=True)
+print("\nDane posortowane po ocenach malejąco:")
+for student in sorted_by_grade_desc:
+    print(student)
+    
+highest_grade_student = max(students, key=lambda x: x[3])
+print("\nStudent z najwyższą oceną:")
+print(highest_grade_student)
+
+
+
 
 
     
