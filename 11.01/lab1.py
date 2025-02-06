@@ -85,9 +85,102 @@ elektrowania_hybrydowa.get_info()
 print(elektrownia_wiatrowa)
 print(elektrownia_wiatrowa == elektrowania_sloneczna)
 
+import math
+class Fraction:    
+    def __init__(self, a, b):        
+        if b == 0:            
+            raise ZeroDivisionError('Mianownik nie może być 0')                
+            
+        # skracanie ułamka
+        f_gcd = math.gcd(a, b)
+        self.a = int(a / f_gcd)
+        self.b = int(b / f_gcd)
+        self.value = self.a / self.b
 
-class Fraction:
-    def __init__(self, licznik, mianownik):
-        self.licznik = licznik
-        self.mianownik = mianownik
-       
+
+    def __repr__(self):        
+        return f'Fraction({self.a}, {self.b})'    
+        
+    def __str__(self):        
+        return f'{self.a // self.b} {self.a % self.b}/{self.b}' if self.value > 1 else  f'{self.a}/{self.b}'    
+        
+    # operatory arytmetyczne    
+    def __add__(self, other):        
+        return Fraction(self.a * other.b + other.a * self.b, self.b * other.b)    
+        
+    def __sub__(self, other):        
+        return Fraction(self.a * other.b - other.a * self.b, self.b * other.b)            
+        
+    def __mul__(self, other):        
+        return Fraction(self.a * other.a, self.b * other.b)        
+        
+    def __truediv__(self, other):        
+        return Fraction(self.a * other.b, self.b * other.a)    
+                            
+    def __abs__(self):        
+        return Fraction(abs(self.a), abs(self.b))    
+        
+    # operatory porównania
+    def __eq__(self, other): # ==        
+        return self.a == other.a and self.b == other.b    
+        
+    def __neq__(self, other): # !=        
+        return self.a != other.a or self.b != other.b    
+                                        
+    def __gt__(self, other): # >        
+        return self.value > other.value        
+                                            
+    def __ge__(self, other): # >=        
+        return self.value >= other.value    
+                                                
+    def __lt__(self, other): # <        
+        return self.value < other.value        
+                                                    
+    def __le__(self, other): # <=        
+        return self.value <= other.value    
+        
+    # metody rzutowania   
+    def __float__(self):        
+        return self.value    
+    def __int__(self):        
+        return int(self.value)        
+    def __bool__(self):        
+        return self.value > 0    
+        
+    # zaokrąglanie    
+    def __round__(self, round_val=0):        
+        return round(float(self.value), round_val)        
+                                                                       
+fraction1 = Fraction(3, 6)
+print(repr(fraction1))
+print(str(fraction1))
+
+fraction2 = Fraction(7, 4)
+print(repr(fraction2))
+print(str(fraction2))
+
+# operatory arytmetyczne
+print('Działania artymetyczne')
+print(Fraction(1, 4) + Fraction(2, 4))
+print(Fraction(3, 4) - Fraction(2, 4))
+print(Fraction(2, 4) * Fraction(2, 4))
+print(Fraction(1, 4) / Fraction(2, 4))
+print(abs(Fraction(-3, 4)))
+
+# operatory porównania
+print('Porówanie')
+print(Fraction(1, 4) == Fraction(2, 4))
+print(Fraction(3, 4) != Fraction(2, 4))
+print(Fraction(2, 4) > Fraction(2, 4))
+print(Fraction(1, 4) >= Fraction(2, 4))
+print(Fraction(1, 4) < Fraction(2, 4))
+print(Fraction(1, 4) <= Fraction(2, 4))
+
+# metody rzutowania
+print('Rzutowanie')
+print(float(Fraction(1, 2)))
+print(int(Fraction(1, 2)))
+print(int(Fraction(3, 2)))
+print(bool(Fraction(1, 2)))
+print(bool(Fraction(0, 2)))
+print(round(Fraction(3, 4), 1))
