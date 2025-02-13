@@ -194,3 +194,62 @@ print(f"Wynagrodzenie pracownika 1: {pracownik1.get_pensja()}")
 #zostać utworzone za pomocą dekoratora @property, w taki sposób, że poziom gracza będzie wyznaczany na podstawie wartości
 #pola "_score". Np. jeśli "_score" będzie większe od 100, to poziom gracza będzie równy 2, a jeśli "_score" będzie większe
 #od 200, to poziom gracza będzie równy 3, itd.
+
+class Player:
+    def __init__(self, nick, health=100, score=0):
+        self.nick = nick
+        self._health = health
+        self._score = score
+
+    @property
+    def level(self):
+        return (self._score // 100) + 1
+    
+    def _get_health(self):
+        return self._health
+
+    def _set_health(self, value):
+        self._health = max(0, min(value, 100))
+
+    @property
+    def health(self):
+        return self._get_health()
+
+    @health.setter
+    def health(self, value):
+        self._set_health(value)
+
+    def attack(self, enemy):
+        if isinstance(enemy, Player):
+            enemy.health -= 10
+            self._score += 10
+        else:
+            print("Nie można zaatakować tego obiektu")
+
+    def heal(self):
+        self.health += 10
+
+
+player1 = Player("John")
+player2 = Player("Mike")
+
+print(f"{player1.nick}: health={player1.health}, level={player1.level}")
+print(f"{player2.nick}: health={player2.health}, level={player2.level}")
+
+player1.attack(player2)
+print(f"{player1.nick} attacked {player2.nick}")
+
+print(f"{player1.nick}: health={player1.health}, level={player1.level}")
+print(f"{player2.nick}: health={player2.health}, level={player2.level}")
+
+player2.heal()
+print(f"{player2.nick} healed himself")
+
+print(f"{player1.nick}: health={player1.health}, level={player1.level}")
+print(f"{player2.nick}: health={player2.health}, level={player2.level}")
+
+player1.health = 80
+print(f"{player1.nick} health value changed to {player1.health}")
+
+print(f"{player1.nick}: health={player1.health}, level={player1.level}")
+print(f"{player2.nick}: health={player2.health}, level={player2.level}")
