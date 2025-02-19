@@ -49,3 +49,61 @@ top_off = df_sorted.sort_values(by='Rank off.').head(5)
 #stworzony na jednym obiekcie Figure, a słupki nie powinny nachodzić na siebie.
 #Użyteczne wyrażenia: contains(), bar().
 
+#fig, ax = plt.subplots(figsize=(10, 6))
+
+filtered_df = df[df['Name'].str.contains('Mega') & df['Name'].str.contains('os')]
+num_records = len(filtered_df)
+
+bar_width = 0.1
+
+# Tworzenie wykresów dla każdego rekordu
+for i, (_, row) in enumerate(filtered_df.iterrows()):
+    stats = row[['Attack', 'Defense', 'Sp. Atk', 'Sp. Def', 'Speed']]
+    x = [j + bar_width * i for j in range(len(stats))]
+    #ax.bar(x, stats, bar_width, label=row['Name'])
+
+# Konfiguracja wykresu
+#ax.set_title('Statystyki ofensywne i defensywne')
+#ax.set_xlabel('Statystyki')
+#ax.set_ylabel('Wartość')
+#ax.set_xticks([r + bar_width * (num_records - 1) / 2 for r in range(len(stats))])
+#ax.set_xticklabels(['Attack', 'Defense', 'Sp. Atk', 'Sp. Def', 'Speed'])
+#ax.legend()
+#plt.show()
+
+
+#Na podstawie dostarczonej ramki danych, utwórz ramkę danych, która będzie zawierała dodatkową kolumnę
+#o nazwie Total, zawierającą sumaryczne wartości statystyk. Następnie utwórz kolumnę Pseudo Legendary,
+#która będzie przyjmować wartość True, jeśli wartość w kolumnie Total będzie większa niż 500, a w przeciwnym
+#razie będzie przyjmować wartość False. Następnie wykonaj zapytanie grupujące ramkę danych według kolumny
+#Generation. Na koniec stwórz wykres ilościowy grup według generacji dla kolumn Legendary oraz Pseudo Legendary.
+#Użyteczne wyrażenia: groupby().
+
+
+df_new = df.copy()
+df_new['Total'] = df[['HP', 'Attack', 'Defense', 'Sp. Atk', 'Sp. Def', 'Speed']].sum(axis=1)
+df_new['Pseudo Legendary'] = df_new['Total'] > 500
+grouped = df_new.groupby('Generation').agg({'Legendary': 'sum', 'Pseudo Legendary': 'sum'}).reset_index()
+
+#grouped.plot(kind='bar', x='Generation', stacked=True)
+#plt.title('Legendary i Pseudo Legendary według generacji')
+#plt.ylabel('Liczba')
+#plt.show()
+
+
+#Na podstawie dostarczonej ramki danych, utwórz ramkę danych, która będzie zawierała jedynie wartości
+#statystyk dla rekordów. Następnie zapisz powstałą ramkę do pliku z rozszerzeniem csv o nazwie modified.csv.
+#Utwórz wykresy zależności między statystkami.
+#Użyteczne wyrażenia: to_csv().
+
+
+df_stats = df[['HP', 'Attack', 'Defense', 'Sp. Atk', 'Sp. Def', 'Speed']]
+df_stats.to_csv('modified.csv', index=False)
+pd.plotting.scatter_matrix(df_stats, figsize=(12, 12))
+plt.show()
+
+
+#Dodaj do istniejącej ramki danych rekordy pochodzące z pliku gen7.csv. Przed połączeniem danych z ramki
+#gen7.csv usuń nadmiarowe kolumny. Po połączeniu zapisz dane do pliku o nazwie pokemon_extended.csv.
+#Nazwy kolumn zachowaj z ramki podstawowej.
+#Użyteczne wyrażenia: drop(), concat(), rename().
