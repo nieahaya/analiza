@@ -99,11 +99,62 @@ grouped = df_new.groupby('Generation').agg({'Legendary': 'sum', 'Pseudo Legendar
 
 df_stats = df[['HP', 'Attack', 'Defense', 'Sp. Atk', 'Sp. Def', 'Speed']]
 df_stats.to_csv('modified.csv', index=False)
-pd.plotting.scatter_matrix(df_stats, figsize=(12, 12))
-plt.show()
+#pd.plotting.scatter_matrix(df_stats, figsize=(12, 12))
+#plt.show()
 
 
 #Dodaj do istniejącej ramki danych rekordy pochodzące z pliku gen7.csv. Przed połączeniem danych z ramki
 #gen7.csv usuń nadmiarowe kolumny. Po połączeniu zapisz dane do pliku o nazwie pokemon_extended.csv.
 #Nazwy kolumn zachowaj z ramki podstawowej.
 #Użyteczne wyrażenia: drop(), concat(), rename().
+
+df_gen7 = pd.read_csv('gen7.csv')
+df_gen7 = df_gen7.rename(columns={
+    'name': 'Name', 
+    'type1': 'Type 1', 
+    'type2': 'Type 2', 
+    'sp_attack': 'Sp. Atk', 
+    'sp_defense': 'Sp. Def', 
+    'generation': 'Generation', 
+    'is_legendary': 'Legendary',
+    'hp': 'HP',
+    'attack': 'Attack',
+    'defense': 'Defense',
+    'speed': 'Speed'
+})
+df_gen7 = df_gen7[df.columns]  # Dopasowanie kolumn do oryginalnego pliku
+df_extended = pd.concat([df, df_gen7])
+df_extended.to_csv('pokemon_extended.csv', index=False)
+
+
+#Dla rozszerzonego zbioru danych (plik pokemon_extended.csv) stwórz wykres kołowy przedstawiający
+#rozkłady typów Pokemonów (Type 1) w poszczególnych generacjach.
+#Użyteczne wyrażenia: loc, plot(), groupby().
+
+pokemon_extended_df = pd.read_csv('pokemon_extended.csv')
+
+# Grupowanie danych według kolumny Generation i Type 1, a następnie zliczenie ilości wystąpień każdego typu w każdej generacji
+grouped = pokemon_extended_df.groupby(['Generation', 'Type 1']).size().unstack()
+
+# Utworzenie wykresów kołowych dla rozkładu Type 1 w poszczególnych generacjach
+fig, axes = plt.subplots(nrows=3, ncols=3, figsize=(15, 15))
+for i, (gen, ax) in enumerate(zip(grouped.index, axes.flatten()), 1):
+    grouped.loc[gen].plot(kind='pie', ax=ax, autopct='%1.1f%%', startangle=90)
+    ax.set_title(f'Generation {i}')
+    if i == 8 or i == 9:
+        for spine in ['top', 'right', 'left', 'bottom']:
+           ax.spines[spine].set_visible(False)
+plt.tight_layout()
+plt.show()
+
+
+#Utwórz ogólny raport statystyczny dla rozszerzonego zbioru danych. Następnie przedstaw te statystyki na
+#wykresie pudełkowym, który pozwoli zobaczyć rozkład wartości poszczególnych cech.
+#Użyteczne wyrażenia: describe(), boxplot().
+
+stat_report = df_extended.describe()
+print(stat_report)
+
+df_extended[['HP', 'Attack', 'Defense', 'Sp. Atk', 'Sp. Def', 'Speed']].plot(kind='box', figsize=(12, 8))
+plt.title('Rozkład statystyk Pokemonów')
+plt.show()
