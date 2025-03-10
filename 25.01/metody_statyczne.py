@@ -163,3 +163,17 @@ print(word_count)
 
 capitalized_text = TextUtils.capitalize_first_letter(sample_text)
 print(capitalized_text)
+
+
+from collections import Counter
+
+def count_letters(text):
+    text = text.replace(" ", "")  # Usunięcie spacji
+    letter_counts = Counter(text)  # Zliczanie liter
+    
+    for letter, count in sorted(letter_counts.items()):
+        print(f"{letter}: {count}")
+
+# Przykładowe użycie
+text = "interrogation education"
+count_letters(text)
