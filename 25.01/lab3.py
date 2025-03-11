@@ -197,3 +197,57 @@ Student.print_students_by_year(students)
 #- Katarzyna Wójcik (21 lat, średnia ocen: 4.0)
 #5 rok:
 #Brak
+
+
+#Stwórz klasę Athlete, która będzie reprezentować sportowca. Klasa ta powinna mieć pola instancji name, age,
+#height, weight, sport, które będą przechowywać odpowiednio: imię i nazwisko, wiek, wzrost, wagę oraz dyscyplinę
+#sportową. Dodatkowo, klasa Athlete powinna mieć dwa pola klasy: team oraz country, które będą przechowywać
+#odpowiednio nazwę drużyny oraz nazwę kraju, do którego należy dany sportowiec. Wartość tych pól powinna być
+#taka sama dla wszystkich instancji tej klasy.
+
+#Klasa powinna mieć metody:
+#1. Metodę instancji get_bmi, która będzie zwracać wartość BMI sportowca na podstawie jego wagi i wzrostu.
+#2. Metodę instancji get_info, która będzie zwracać informacje o sportowcu: imię i nazwisko, wiek, wzrost, wagę,
+#dyscyplinę sportową, nazwę drużyny oraz nazwę kraju.
+#3. Metodę klasową set_team(team), która będzie ustawiać nazwę drużyny
+#4. Metodę klasową set_country(country), która będzie ustawiać nazwę kraju
+
+class Athlete:
+    team = "unknown"
+    country = "unknown"
+
+    def __init__(self, name, age, height, weight, sport):
+        self.name = name
+        self.age = age
+        self.height = height
+        self.weight = weight
+        self.sport = sport
+
+    def get_bmi(self):
+        return "{:.2f}".format(self.weight / (self.height/100)**2)
+    
+    def get_info(self):
+        return f"Name: {self.name}, Age: {self.age}, Height: {self.height}cm, Weight: {self.weight}kg, Sport: {self.sport}, Team: {self.team}, Country: {self.country}"
+
+    
+    @classmethod
+    def set_team(cls, team_name):
+        cls.team = team_name  # Zmienia wartość dla wszystkich instancji klasy
+
+    @classmethod
+    def set_country(cls, country_name):
+        cls.country = country_name  # Zmienia wartość dla wszystkich instancji klasy
+
+athlete1 = Athlete("Adam Nowak", 25, 175, 75, "football")
+athlete2 = Athlete("Ewa Kowalska", 30, 180, 68, "tennis")
+athlete1.set_team("Real Madrid")
+athlete2.set_country("Poland")
+print(athlete1.get_bmi())
+#24.49
+print(athlete1.get_info())
+#Name: Adam Nowak, Age: 25, Height: 175cm, Weight: 75kg, Sport: football, Team: Real Madrid,
+#Country: No country
+print(athlete2.get_info())
+#Name: Ewa Kowalska, Age: 30, Height: 180cm, Weight: 68kg, Sport: tennis, Team: No team,
+#Country: Poland
+
