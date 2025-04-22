@@ -162,6 +162,38 @@ f = print([fiboc(i) for i in range(32)])
 #przechowywanemu w bazie danych. Należy wyświetlić stosowny komunikat
 #w zależności od wyniku weryfikacji.
 
+users = {}
+
+while True:
+    print("\menu")
+    print("\(a) utwórz konto")
+    print("\(b) zaloguj się")
+    print("\(c) zakończ program")
+
+    operation = input('Wybierz opcję: ')
+    
+    if operation == 'a':
+        print("tworzenie konta")
+        nazwa = input("podaj nazwę użytkownika: ")
+        hasło = input("podaj hasło: ")
+        users[nazwa] = hash(hasło)
+    elif operation == 'b':
+        nazwa = input("podaj nazwę użytkownika: ")
+        hasło = input("podaj hasło: ")
+        if nazwa in users and users[nazwa] == hash(hasło):
+            print("logowanie powiodło się")
+        else:
+            print("błędne dane logowania")
+    elif operation == 'c':
+        break
+    else:
+        print("Nieznana operacja")
+        
+print(users)
+        
+
+
+
 
 
 

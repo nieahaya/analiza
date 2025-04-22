@@ -1,0 +1,205 @@
+Stop1,Stop2
+Antosiewicza,Dubois
+Antosiewicza,Lubeckiego
+Antosiewicza,Stocznia Szczecińska
+Arena Szczecin,Rondo Olszewskiego
+Arena Szczecin,Szafera
+Arkońska Szpital,Tatrzańska
+Arkońska Szpital,Wojciechowskiego
+Arkońska Szpital,Wszystkich Świętych
+Basen Górniczy,Hangarowa
+Basen Górniczy,Merkatora
+Boguchwały,Dworzec Niebuszewo
+Boguchwały,Niemcewicza
+Bogumiły,Piotra Skargi
+Bogumiły,Plac Gałczyńskiego
+Bogumiły,Łękno
+Bohaterów Warszawy,Piastów
+Bohaterów Warszawy,Turzyn
+Bohaterów Warszawy,Wawrzyniaka
+Brama Portowa,Plac Kościuszki
+Brama Portowa,Plac Zawiszy
+Brama Portowa,Plac Żołnierza Polskiego
+Brama Portowa,Wyszyńskiego
+Brzozowskiego,Konopnickiej
+Brzozowskiego,Wernyhory
+Bulwar Piastowski,Wały Chrobrego
+Bulwar Piastowski,Wyszyńskiego
+Celna,Energetyków
+Celna,Wyszyńskiego
+Cmentarz Centralny,Karola Miarki
+Cmentarz Centralny,Osiedle Akademickie
+Dobromiry,Lubeckiego
+Dobromiry,Ludowa
+Dobromiry,Stocznia Remontowa
+Dubois,Antosiewicza
+Dubois,Parkowa
+Dubois,Stocznia Szczecińska
+Dubois,Teatr Polski
+Dworzec Niebuszewo,Boguchwały
+Energetyków,Celna
+Energetyków,SKM Port Centralny
+Felczaka,Piotra Skargi
+Felczaka,Plac Szarych Szeregów
+Filharmonia,Plac Rodła
+Filharmonia,Plac Żołnierza Polskiego
+Gocław,Lipowa
+Goplana,Kasyno
+Goplana,Tor Kolarski
+Gumieńce,Kwiatowa
+Głębokie,Kasyno
+Hangarowa,Basen Górniczy
+Hangarowa,Jaśminowa ZUS
+Jaśminowa ZUS,Hangarowa
+Jaśminowa ZUS,Turkusowa
+Karola Miarki,Cmentarz Centralny
+Karola Miarki,Szkoła Salezjańska
+Karłowicza,Poniatowskiego
+Karłowicza,Wawrzyniaka
+Kasyno,Goplana
+Kasyno,Głębokie
+Konopnickiej,Brzozowskiego
+Konopnickiej,Poniatowskiego
+Kołłątaja,Krasińskiego
+Kołłątaja,Lubomirskiego
+Kołłątaja,Niemcewicza
+Krasińskiego,Kołłątaja
+Krasińskiego,Muzeum Techniki
+Ku Słońcu,Kwiatowa
+Ku Słońcu,Szkoła Salezjańska
+Kwiatowa,Gumieńce
+Kwiatowa,Ku Słońcu
+Las Arkoński,Stadion Arkonii
+Las Arkoński,Wojciechowskiego
+Lipowa,Gocław
+Lipowa,Światowida
+Lubeckiego,Antosiewicza
+Lubeckiego,Dobromiry
+Lubeckiego,Stocznia Szczecińska
+Lubomirskiego,Kołłątaja
+Lubomirskiego,Plac Witosa
+Ludowa,Dobromiry
+Ludowa,Robotnicza
+Ludowa,Stocznia Remontowa
+Matejki,Parkowa
+Matejki,Plac Rodła
+Merkatora,Basen Górniczy
+Merkatora,Parnica
+Międzyparkowa,Rondo Olszewskiego
+Międzyparkowa,Stadion Arkonii
+Modra,Osiedle Zawadzkiego
+Modra,Żołnierska
+Muzeum Techniki,Krasińskiego
+Muzeum Techniki,Niemierzyńska Technopark
+Narutowicza,Plac Kościuszki
+Narutowicza,Szwoleżerów
+Niemcewicza,Boguchwały
+Niemcewicza,Kołłątaja
+Niemierzyńska Technopark,Muzeum Techniki
+Niemierzyńska Technopark,Wszystkich Świętych
+Osiedle Akademickie,Cmentarz Centralny
+Osiedle Akademickie,Sikorskiego
+Osiedle Zawadzkiego,Modra
+Osiedle Zawadzkiego,Szafera
+Parkowa,Dubois
+Parkowa,Matejki
+Parnica,Merkatora
+Parnica,SKM Port Centralny
+Piastów,Bohaterów Warszawy
+Piastów,Plac Kościuszki
+Piastów,Plac Szarych Szeregów
+Piotra Skargi,Bogumiły
+Piotra Skargi,Felczaka
+Plac Gałczyńskiego,Bogumiły
+Plac Gałczyńskiego,Wawrzyniaka
+Plac Grunwaldzki,Plac Rodła
+Plac Grunwaldzki,Plac Szarych Szeregów
+Plac Kościuszki,Brama Portowa
+Plac Kościuszki,Narutowicza
+Plac Kościuszki,Piastów
+Plac Kościuszki,Sikorskiego
+Plac Kościuszki,Turzyn
+Plac Rodła,Filharmonia
+Plac Rodła,Matejki
+Plac Rodła,Plac Grunwaldzki
+Plac Rodła,Plac Żołnierza Polskiego
+Plac Rodła,Rayskiego
+Plac Szarych Szeregów,Felczaka
+Plac Szarych Szeregów,Piastów
+Plac Szarych Szeregów,Plac Grunwaldzki
+Plac Szyrockiego,Szwoleżerów
+Plac Witosa,Lubomirskiego
+Plac Witosa,Rayskiego
+Plac Zawiszy,Brama Portowa
+Plac Zawiszy,Sowińskiego
+Plac Żołnierza Polskiego,Brama Portowa
+Plac Żołnierza Polskiego,Filharmonia
+Plac Żołnierza Polskiego,Plac Rodła
+Poniatowskiego,Karłowicza
+Poniatowskiego,Konopnickiej
+Potulicka,Sowińskiego
+Rayskiego,Plac Rodła
+Rayskiego,Plac Witosa
+Robotnicza,Ludowa
+Robotnicza,Zajezdnia Golęcin
+Rondo Olszewskiego,Arena Szczecin
+Rondo Olszewskiego,Międzyparkowa
+Rondo Olszewskiego,Tor Kolarski
+Rondo Olszewskiego,Zajezdnia Pogodno
+SKM Port Centralny,Energetyków
+SKM Port Centralny,Parnica
+Sikorskiego,Osiedle Akademickie
+Sikorskiego,Plac Kościuszki
+Sowińskiego,Plac Zawiszy
+Sowińskiego,Potulicka
+Stadion Arkonii,Las Arkoński
+Stadion Arkonii,Międzyparkowa
+Stocznia Remontowa,Dobromiry
+Stocznia Remontowa,Ludowa
+Stocznia Szczecińska,Antosiewicza
+Stocznia Szczecińska,Dubois
+Stocznia Szczecińska,Lubeckiego
+Strzałowska,Zajezdnia Golęcin
+Strzałowska,Światowida
+Szafera,Arena Szczecin
+Szafera,Osiedle Zawadzkiego
+Szkoła Salezjańska,Karola Miarki
+Szkoła Salezjańska,Ku Słońcu
+Szwoleżerów,Narutowicza
+Szwoleżerów,Plac Szyrockiego
+Tatrzańska,Arkońska Szpital
+Tatrzańska,Wojciechowskiego
+Teatr Polski,Dubois
+Teatr Polski,Wały Chrobrego
+Tor Kolarski,Goplana
+Tor Kolarski,Rondo Olszewskiego
+Turkusowa,Jaśminowa ZUS
+Turzyn,Bohaterów Warszawy
+Turzyn,Plac Kościuszki
+Unii Lubelskiej,Zajezdnia Pogodno
+Unii Lubelskiej,Łękno
+Wawrzyniaka,Bohaterów Warszawy
+Wawrzyniaka,Karłowicza
+Wawrzyniaka,Plac Gałczyńskiego
+Wały Chrobrego,Bulwar Piastowski
+Wały Chrobrego,Teatr Polski
+Wernyhory,Brzozowskiego
+Wernyhory,Żołnierska
+Wojciechowskiego,Arkońska Szpital
+Wojciechowskiego,Las Arkoński
+Wojciechowskiego,Tatrzańska
+Wszystkich Świętych,Arkońska Szpital
+Wszystkich Świętych,Niemierzyńska Technopark
+Wyszyńskiego,Brama Portowa
+Wyszyńskiego,Bulwar Piastowski
+Wyszyńskiego,Celna
+Zajezdnia Golęcin,Robotnicza
+Zajezdnia Golęcin,Strzałowska
+Zajezdnia Pogodno,Rondo Olszewskiego
+Zajezdnia Pogodno,Unii Lubelskiej
+Łękno,Bogumiły
+Łękno,Unii Lubelskiej
+Światowida,Lipowa
+Światowida,Strzałowska
+Żołnierska,Modra
+Żołnierska,Wernyhory
